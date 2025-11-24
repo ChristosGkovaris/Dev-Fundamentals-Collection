@@ -1,0 +1,68 @@
+body {
+    background-color: #333333; /* Σκούρο γκρι φόντο */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    color: #fff;
+    font-family: Arial, sans-serif;
+}
+
+.sparkle-button {
+    position: relative;
+    font-size: 50px;
+    cursor: pointer;
+    user-select: none;
+    text-align: center;
+}
+
+.sparkle-button::before,
+.sparkle-button::after,
+.sparkle-button .star1,
+.sparkle-button .star2,
+.sparkle-button .star3,
+.sparkle-button .star4 {
+    content: "★"; /* Αστεράκι */
+    position: absolute;
+    top: 50%; /* Κεντράρουμε τα αστέρια στο κέντρο του κειμένου */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    font-size: 25px;
+    color: #fff;
+    pointer-events: none; /* Αποφυγή αλληλεπίδρασης με τα αστεράκια */
+}
+
+.sparkle-button::before {
+    transform: translate(-50%, -50%) rotate(0deg) translateX(100px); /* Αστεράκι 1 */
+}
+
+.sparkle-button::after {
+    transform: translate(-50%, -50%) rotate(90deg) translateX(100px); /* Αστεράκι 2 */
+}
+
+.sparkle-button .star1 {
+    transform: translate(-50%, -50%) rotate(180deg) translateX(100px); /* Αστεράκι 3 */
+}
+
+.sparkle-button .star2 {
+    transform: translate(-50%, -50%) rotate(270deg) translateX(100px); /* Αστεράκι 4 */
+}
+
+.sparkle-button:hover::before,
+.sparkle-button:hover::after,
+.sparkle-button:hover .star1,
+.sparkle-button:hover .star2 {
+    opacity: 1;
+    animation: sparkle 2s infinite linear;
+}
+
+@keyframes sparkle {
+    0% {
+        transform: rotate(0deg) translateX(100px);
+    }
+    100% {
+        transform: rotate(360deg) translateX(100px);
+    }
+}
